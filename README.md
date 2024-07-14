@@ -53,7 +53,25 @@ du -h bni.ddb bni.parquet
 
 ```
 duckdb
+```
 
+The schema: `data` contains the full Unimarc record converted to JSON
+
+```
+DESCRIBE SELECT * FROM 'https://atomotic.github.io/bni/bni.parquet';
+┌─────────────┬─────────────┬─────────┬─────────┬─────────┬─────────┐
+│ column_name │ column_type │  null   │   key   │ default │  extra  │
+│   varchar   │   varchar   │ varchar │ varchar │ varchar │ varchar │
+├─────────────┼─────────────┼─────────┼─────────┼─────────┼─────────┤
+│ id          │ VARCHAR     │ YES     │         │         │         │
+│ isbn        │ VARCHAR     │ YES     │         │         │         │
+│ title       │ VARCHAR     │ YES     │         │         │         │
+│ data        │ VARCHAR     │ YES     │         │         │         │
+│ source      │ VARCHAR     │ YES     │         │         │         │
+└─────────────┴─────────────┴─────────┴─────────┴─────────┴─────────┘
+```
+
+```
 D .mode line
 D SELECT id,title,isbn,source FROM 'https://atomotic.github.io/bni/bni.parquet' WHERE title LIKE '%biblioteco%' LIMIT 5;
 
