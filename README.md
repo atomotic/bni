@@ -1,3 +1,3 @@
 # BNI – Bibliografia Nazionale Italiana
 
-Parquet dump
+Parquet dump https://atomotic.github.io/bni/bni.parquet
