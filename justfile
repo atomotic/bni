@@ -19,4 +19,4 @@ load:
     parallel -j1 ./bni {} ::: xml/*.xml
 
 export:
-    duckdb bni.ddb "copy bni to test.parquet (format parquet);"
+    duckdb bni.ddb "copy bni to bni.parquet (format parquet);"
